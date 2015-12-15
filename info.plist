@@ -164,6 +164,8 @@ pip install -r reqs.txt</string>
 				<false/>
 				<key>sticky</key>
 				<false/>
+				<key>text</key>
+				<string>All dependencies installed.</string>
 				<key>title</key>
 				<string>Habitica was initiailized!</string>
 			</dict>
@@ -267,8 +269,10 @@ python habcall.py --up "{query}"</string>
 				<false/>
 				<key>sticky</key>
 				<false/>
+				<key>text</key>
+				<string>Keep up the good work.</string>
 				<key>title</key>
-				<string>Habit was logged.</string>
+				<string>Your habit activity was uploaded!</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.notification</string>
