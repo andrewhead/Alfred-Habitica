@@ -1,1 +1,8 @@
+# Files for setting up and using a virtual environment
 venv
+*.tar.gz
+virtualenv-*/
+
+# Local configuration files
+tasks.txt
+alfred_habitica.cfg

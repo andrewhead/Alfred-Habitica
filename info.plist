@@ -12,29 +12,18 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>28F75D7D-9617-42B4-9FA5-6A0CF5D60370</string>
+				<string>B2F7587F-459C-4708-91EA-3E9F6B9E07F3</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
 			</dict>
 		</array>
-		<key>28F75D7D-9617-42B4-9FA5-6A0CF5D60370</key>
+		<key>4151E782-5944-4588-83FC-A60D00C7B1D0</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>EEB36CD5-623A-4319-A6D7-F47439972FF0</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-			</dict>
-		</array>
-		<key>3A82E246-0C73-4853-8C3D-F0161B4E0147</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>94DD9854-8072-4728-8290-65BCB948BC77</string>
+				<string>86DEF423-8EE8-4E9C-AD78-EC79872B9A90</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -52,7 +41,18 @@
 				<string></string>
 			</dict>
 		</array>
-		<key>72E2A413-DA7A-4B50-94AF-B9DA0F7DE17B</key>
+		<key>86DEF423-8EE8-4E9C-AD78-EC79872B9A90</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>FEE3F125-C0F7-454E-A5FC-F15380B97AC1</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>9C7ED541-7BD0-4641-9300-44F703239C79</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
@@ -63,33 +63,22 @@
 				<string></string>
 			</dict>
 		</array>
-		<key>94DD9854-8072-4728-8290-65BCB948BC77</key>
+		<key>A3EBB541-7AB3-463D-B9A0-6E7AE49E039D</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>9B068E00-FBF1-49BE-A91A-9B2262D7537C</string>
+				<string>EBD182AE-F93C-4E75-A74D-A793F3066C4B</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
 			</dict>
 		</array>
-		<key>C12A2EDA-82B2-42F7-BDBD-DF4DA4632F5E</key>
+		<key>B2F7587F-459C-4708-91EA-3E9F6B9E07F3</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>FA8EE2C1-B581-4BFC-A114-C68809F45A47</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-			</dict>
-		</array>
-		<key>FA8EE2C1-B581-4BFC-A114-C68809F45A47</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>9B068E00-FBF1-49BE-A91A-9B2262D7537C</string>
+				<string>91053FAE-B9EC-43B1-80BE-6D74A50A01B4</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -110,37 +99,14 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>export PATH=$PATH:/usr/local/bin
-
-virtualenv venv
-sed -i.bak "s/VIRTUAL_ENV=\"\(.*\)\"/VIRTUAL_ENV='\1'/" venv/bin/activate
-sed -i.bak '1s-.*-#!/usr/bin/env python-' venv/bin/pip
-source venv/bin/activate
-pip install -r reqs.txt</string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>28F75D7D-9617-42B4-9FA5-6A0CF5D60370</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
-				<string>h init</string>
+				<string>hab config</string>
+				<key>subtext</key>
+				<string>Set API keys and set up software</string>
 				<key>text</key>
-				<string>Initialize Habitica</string>
+				<string>Configure Alfred Habitica</string>
 				<key>withspace</key>
 				<false/>
 			</dict>
@@ -154,25 +120,23 @@ pip install -r reqs.txt</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>lastpathcomponent</key>
+				<key>applescript</key>
+				<string>on alfred_script(q)
+  display dialog "You'll need your Alfred API keys.  This part is simple :).  Just go to this link: https://habitica.com/#/options/settings/api."  buttons {"I have opened the API page"} default button 1
+  display dialog "What is your Habitica 'User ID'?" default answer ""
+  set user_id to text returned of result
+  display dialog "What is your Habitica 'API Token'?" default answer ""
+  set api_token to text returned of result
+  display dialog "Saving authentication and downloading dependencies to the workflow's directory.  Hang tight---you'll see a notification when setup is done."  buttons {"Ok"} default button 1
+  return user_id &amp; "," &amp; api_token
+end alfred_script</string>
+				<key>cachescript</key>
 				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>output</key>
-				<integer>0</integer>
-				<key>removeextension</key>
-				<false/>
-				<key>sticky</key>
-				<false/>
-				<key>text</key>
-				<string>All dependencies installed.</string>
-				<key>title</key>
-				<string>Habitica was initiailized!</string>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
+			<string>alfred.workflow.action.applescript</string>
 			<key>uid</key>
-			<string>EEB36CD5-623A-4319-A6D7-F47439972FF0</string>
+			<string>B2F7587F-459C-4708-91EA-3E9F6B9E07F3</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -184,34 +148,35 @@ pip install -r reqs.txt</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>source venv/bin/activate
-python habcall.py "Press Teeth"</string>
+				<string># Save API authentication information to local file.
+echo "[auth]" &gt; alfred_habitica.cfg
+echo {query} | sed -E 's!(.*),.*!user_id=\1!' &gt;&gt; alfred_habitica.cfg
+echo {query} | sed -E 's!.*,(.*)!api_token=\1!' &gt;&gt; alfred_habitica.cfg
+
+# Get Python virtualenv source.
+# I do this so that we more respectfully download dependencies to the
+# local directory instead of requiring users to install global dependencies.
+curl -L https://github.com/pypa/virtualenv/archive/15.0.0.tar.gz --output 15.0.0.tar.gz
+tar xzvf 15.0.0.tar.gz
+
+# Create a virtual environment in directory 'venv'
+python virtualenv-15.0.0/virtualenv.py venv
+
+# The next couple of lines are workarounds to let us install virtualenv pip
+sed -i.bak "s/VIRTUAL_ENV=\"\(.*\)\"/VIRTUAL_ENV='\1'/" venv/bin/activate
+sed -i.bak '1s-.*-#!/usr/bin/env python-' venv/bin/pip
+
+# Install the requirements!
+source venv/bin/activate
+pip install -r reqs.txt
+osascript -e 'display notification "is ready to use." with title "Alfred Habitica"'</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.script</string>
+			<string>alfred.workflow.output.script</string>
 			<key>uid</key>
-			<string>FA8EE2C1-B581-4BFC-A114-C68809F45A47</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>h teeth</string>
-				<key>text</key>
-				<string>Store that you chomped your teeth.</string>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>C12A2EDA-82B2-42F7-BDBD-DF4DA4632F5E</string>
+			<string>91053FAE-B9EC-43B1-80BE-6D74A50A01B4</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -223,8 +188,8 @@ python habcall.py "Press Teeth"</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>source venv/bin/activate
-python habcall.py --up "{query}"</string>
+				<string>venv/bin/python habitica.py report --up "{query}"
+echo -n {query}</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
@@ -238,21 +203,115 @@ python habcall.py --up "{query}"</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>Your good habit "{query}" has been saved.</string>
+				<key>title</key>
+				<string>Keep up the good work!</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>9B068E00-FBF1-49BE-A91A-9B2262D7537C</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argumenttype</key>
 				<integer>0</integer>
+				<key>escaping</key>
+				<integer>68</integer>
 				<key>keyword</key>
-				<string>hu</string>
+				<string>hab good</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>script</key>
+				<string>venv/bin/python habitica.py autocomplete --task-type good "{query}"</string>
 				<key>subtext</key>
-				<string>Good work on doing {query}</string>
-				<key>text</key>
-				<string>Log a positive habit</string>
+				<string>Start typing to show autocomplete</string>
+				<key>title</key>
+				<string>Share a Good Habit</string>
+				<key>type</key>
+				<integer>0</integer>
 				<key>withspace</key>
 				<true/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
+			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>72E2A413-DA7A-4B50-94AF-B9DA0F7DE17B</string>
+			<string>9C7ED541-7BD0-4641-9300-44F703239C79</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>venv/bin/python habitica.py report "{query}"
+echo -n {query}</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>86DEF423-8EE8-4E9C-AD78-EC79872B9A90</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>keyword</key>
+				<string>hab bad</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>script</key>
+				<string>venv/bin/python habitica.py autocomplete --task-type bad "{query}"</string>
+				<key>subtext</key>
+				<string>Start typing to show autocomplete</string>
+				<key>title</key>
+				<string>Share a Bad Habit</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>4151E782-5944-4588-83FC-A60D00C7B1D0</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -270,14 +329,35 @@ python habcall.py --up "{query}"</string>
 				<key>sticky</key>
 				<false/>
 				<key>text</key>
-				<string>Keep up the good work.</string>
+				<string>for the habit "{query}"</string>
 				<key>title</key>
-				<string>Your habit activity was uploaded!</string>
+				<string>Your bad habit was logged</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
-			<string>9B068E00-FBF1-49BE-A91A-9B2262D7537C</string>
+			<string>FEE3F125-C0F7-454E-A5FC-F15380B97AC1</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>hab refresh</string>
+				<key>subtext</key>
+				<string>(Sometimes the list gets stale)</string>
+				<key>text</key>
+				<string>Refresh the list of autocomplete tasks.</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>A3EBB541-7AB3-463D-B9A0-6E7AE49E039D</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -289,36 +369,14 @@ python habcall.py --up "{query}"</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>source venv/bin/activate
-python habcall.py "{query}"</string>
+				<string>venv/bin/python habitica.py report --up "{query}"</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>94DD9854-8072-4728-8290-65BCB948BC77</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>keyword</key>
-				<string>hd</string>
-				<key>subtext</key>
-				<string>Thanks for logging {query}</string>
-				<key>text</key>
-				<string>Log a negative habit</string>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>3A82E246-0C73-4853-8C3D-F0161B4E0147</string>
+			<string>EBD182AE-F93C-4E75-A74D-A793F3066C4B</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -330,14 +388,9 @@ python habcall.py "{query}"</string>
 		<key>21A9BB80-DA83-414C-9FF3-76CBA477815A</key>
 		<dict>
 			<key>ypos</key>
-			<real>40</real>
+			<real>150</real>
 		</dict>
-		<key>28F75D7D-9617-42B4-9FA5-6A0CF5D60370</key>
-		<dict>
-			<key>ypos</key>
-			<real>40</real>
-		</dict>
-		<key>3A82E246-0C73-4853-8C3D-F0161B4E0147</key>
+		<key>4151E782-5944-4588-83FC-A60D00C7B1D0</key>
 		<dict>
 			<key>ypos</key>
 			<real>400</real>
@@ -345,37 +398,47 @@ python habcall.py "{query}"</string>
 		<key>7110D669-6869-409F-8447-4057E45804C3</key>
 		<dict>
 			<key>ypos</key>
-			<real>280</real>
+			<real>290</real>
 		</dict>
-		<key>72E2A413-DA7A-4B50-94AF-B9DA0F7DE17B</key>
-		<dict>
-			<key>ypos</key>
-			<real>280</real>
-		</dict>
-		<key>94DD9854-8072-4728-8290-65BCB948BC77</key>
+		<key>86DEF423-8EE8-4E9C-AD78-EC79872B9A90</key>
 		<dict>
 			<key>ypos</key>
 			<real>400</real>
 		</dict>
+		<key>91053FAE-B9EC-43B1-80BE-6D74A50A01B4</key>
+		<dict>
+			<key>ypos</key>
+			<real>150</real>
+		</dict>
 		<key>9B068E00-FBF1-49BE-A91A-9B2262D7537C</key>
 		<dict>
 			<key>ypos</key>
-			<real>280</real>
+			<real>290</real>
 		</dict>
-		<key>C12A2EDA-82B2-42F7-BDBD-DF4DA4632F5E</key>
+		<key>9C7ED541-7BD0-4641-9300-44F703239C79</key>
 		<dict>
 			<key>ypos</key>
-			<real>160</real>
+			<real>290</real>
 		</dict>
-		<key>EEB36CD5-623A-4319-A6D7-F47439972FF0</key>
+		<key>A3EBB541-7AB3-463D-B9A0-6E7AE49E039D</key>
 		<dict>
 			<key>ypos</key>
-			<real>40</real>
+			<real>550</real>
 		</dict>
-		<key>FA8EE2C1-B581-4BFC-A114-C68809F45A47</key>
+		<key>B2F7587F-459C-4708-91EA-3E9F6B9E07F3</key>
 		<dict>
 			<key>ypos</key>
-			<real>160</real>
+			<real>150</real>
+		</dict>
+		<key>EBD182AE-F93C-4E75-A74D-A793F3066C4B</key>
+		<dict>
+			<key>ypos</key>
+			<real>550</real>
+		</dict>
+		<key>FEE3F125-C0F7-454E-A5FC-F15380B97AC1</key>
+		<dict>
+			<key>ypos</key>
+			<real>400</real>
 		</dict>
 	</dict>
 	<key>webaddress</key>
