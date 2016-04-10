@@ -30,6 +30,17 @@
 				<string></string>
 			</dict>
 		</array>
+		<key>53B586D4-51A1-4F75-B73D-B9F037B6007A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>420B7B47-18F8-4D8D-BDBD-AF5E635815BE</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
 		<key>7110D669-6869-409F-8447-4057E45804C3</key>
 		<array>
 			<dict>
@@ -85,6 +96,17 @@
 				<string></string>
 			</dict>
 		</array>
+		<key>EBD182AE-F93C-4E75-A74D-A793F3066C4B</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>84895D66-36B5-44EC-B416-1A551E52B599</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
 	</dict>
 	<key>createdby</key>
 	<string>Andrew Head</string>
@@ -96,27 +118,6 @@
 	<string>Habitica</string>
 	<key>objects</key>
 	<array>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>hab config</string>
-				<key>subtext</key>
-				<string>Set API keys and set up software</string>
-				<key>text</key>
-				<string>Configure Alfred Habitica</string>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>21A9BB80-DA83-414C-9FF3-76CBA477815A</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -137,6 +138,27 @@ end alfred_script</string>
 			<string>alfred.workflow.action.applescript</string>
 			<key>uid</key>
 			<string>B2F7587F-459C-4708-91EA-3E9F6B9E07F3</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>hab config</string>
+				<key>subtext</key>
+				<string>Set API keys and set up software</string>
+				<key>text</key>
+				<string>Configure Alfred Habitica</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>21A9BB80-DA83-414C-9FF3-76CBA477815A</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -169,6 +191,7 @@ sed -i.bak '1s-.*-#!/usr/bin/env python-' venv/bin/pip
 # Install the requirements!
 source venv/bin/activate
 pip install -r reqs.txt
+python habitica.py refresh  # refresh the list of tasks
 osascript -e 'display notification "is ready to use." with title "Alfred Habitica"'</string>
 				<key>type</key>
 				<integer>0</integer>
@@ -177,6 +200,31 @@ osascript -e 'display notification "is ready to use." with title "Alfred Habitic
 			<string>alfred.workflow.output.script</string>
 			<key>uid</key>
 			<string>91053FAE-B9EC-43B1-80BE-6D74A50A01B4</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>Your good habit has been saved.</string>
+				<key>title</key>
+				<string>Keep up the good work!</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>9B068E00-FBF1-49BE-A91A-9B2262D7537C</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -197,31 +245,6 @@ echo -n {query}</string>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
 			<string>7110D669-6869-409F-8447-4057E45804C3</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>output</key>
-				<integer>0</integer>
-				<key>removeextension</key>
-				<false/>
-				<key>sticky</key>
-				<false/>
-				<key>text</key>
-				<string>Your good habit "{query}" has been saved.</string>
-				<key>title</key>
-				<string>Keep up the good work!</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>9B068E00-FBF1-49BE-A91A-9B2262D7537C</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -283,6 +306,31 @@ echo -n {query}</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>Your habit stats have been updated.</string>
+				<key>title</key>
+				<string>Your bad habit was logged</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>FEE3F125-C0F7-454E-A5FC-F15380B97AC1</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>escaping</key>
@@ -318,25 +366,17 @@ echo -n {query}</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>lastpathcomponent</key>
+				<key>plusspaces</key>
 				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>output</key>
-				<integer>0</integer>
-				<key>removeextension</key>
-				<false/>
-				<key>sticky</key>
-				<false/>
-				<key>text</key>
-				<string>for the habit "{query}"</string>
-				<key>title</key>
-				<string>Your bad habit was logged</string>
+				<key>url</key>
+				<string>https://habitica.com/#/tasks</string>
+				<key>utf8</key>
+				<true/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
+			<string>alfred.workflow.action.openurl</string>
 			<key>uid</key>
-			<string>FEE3F125-C0F7-454E-A5FC-F15380B97AC1</string>
+			<string>420B7B47-18F8-4D8D-BDBD-AF5E635815BE</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -344,20 +384,20 @@ echo -n {query}</string>
 			<key>config</key>
 			<dict>
 				<key>argumenttype</key>
-				<integer>0</integer>
+				<integer>2</integer>
 				<key>keyword</key>
-				<string>hab refresh</string>
+				<string>hab home</string>
 				<key>subtext</key>
-				<string>(Sometimes the list gets stale)</string>
+				<string>Check up on your stats in the browser</string>
 				<key>text</key>
-				<string>Refresh the list of autocomplete tasks.</string>
+				<string>Go to your Habitica home page</string>
 				<key>withspace</key>
-				<true/>
+				<false/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
-			<string>A3EBB541-7AB3-463D-B9A0-6E7AE49E039D</string>
+			<string>53B586D4-51A1-4F75-B73D-B9F037B6007A</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -369,7 +409,7 @@ echo -n {query}</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>venv/bin/python habitica.py report --up "{query}"</string>
+				<string>venv/bin/python habitica.py refresh</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
@@ -377,6 +417,52 @@ echo -n {query}</string>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
 			<string>EBD182AE-F93C-4E75-A74D-A793F3066C4B</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>Autocomplete is now up to date</string>
+				<key>title</key>
+				<string>Your local list of tasks is refreshed</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>84895D66-36B5-44EC-B416-1A551E52B599</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>hab refresh</string>
+				<key>subtext</key>
+				<string>(Sometimes the list gets stale)</string>
+				<key>text</key>
+				<string>Refresh the list of autocomplete tasks.</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>A3EBB541-7AB3-463D-B9A0-6E7AE49E039D</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -395,10 +481,25 @@ echo -n {query}</string>
 			<key>ypos</key>
 			<real>400</real>
 		</dict>
+		<key>420B7B47-18F8-4D8D-BDBD-AF5E635815BE</key>
+		<dict>
+			<key>ypos</key>
+			<real>510</real>
+		</dict>
+		<key>53B586D4-51A1-4F75-B73D-B9F037B6007A</key>
+		<dict>
+			<key>ypos</key>
+			<real>510</real>
+		</dict>
 		<key>7110D669-6869-409F-8447-4057E45804C3</key>
 		<dict>
 			<key>ypos</key>
 			<real>290</real>
+		</dict>
+		<key>84895D66-36B5-44EC-B416-1A551E52B599</key>
+		<dict>
+			<key>ypos</key>
+			<real>650</real>
 		</dict>
 		<key>86DEF423-8EE8-4E9C-AD78-EC79872B9A90</key>
 		<dict>
@@ -423,7 +524,7 @@ echo -n {query}</string>
 		<key>A3EBB541-7AB3-463D-B9A0-6E7AE49E039D</key>
 		<dict>
 			<key>ypos</key>
-			<real>550</real>
+			<real>650</real>
 		</dict>
 		<key>B2F7587F-459C-4708-91EA-3E9F6B9E07F3</key>
 		<dict>
@@ -433,7 +534,7 @@ echo -n {query}</string>
 		<key>EBD182AE-F93C-4E75-A74D-A793F3066C4B</key>
 		<dict>
 			<key>ypos</key>
-			<real>550</real>
+			<real>650</real>
 		</dict>
 		<key>FEE3F125-C0F7-454E-A5FC-F15380B97AC1</key>
 		<dict>
