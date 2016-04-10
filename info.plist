@@ -217,7 +217,7 @@ osascript -e 'display notification "is ready to use." with title "Alfred Habitic
 				<key>sticky</key>
 				<false/>
 				<key>text</key>
-				<string>Your good habit "{query}" has been saved.</string>
+				<string>Your good habit has been saved.</string>
 				<key>title</key>
 				<string>Keep up the good work!</string>
 			</dict>
@@ -317,7 +317,7 @@ echo -n {query}</string>
 				<key>sticky</key>
 				<false/>
 				<key>text</key>
-				<string>for the habit "{query}"</string>
+				<string>Your habit stats have been updated.</string>
 				<key>title</key>
 				<string>Your bad habit was logged</string>
 			</dict>
