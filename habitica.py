@@ -34,22 +34,22 @@ config = ConfigParser.ConfigParser()
 config.read(CONFIG_FILENAME)
 user_id = config.get('auth', 'user_id')
 api_token = config.get('auth', 'api_token')
-api = slumber.API('https://habitica.com/api/v2', auth=HabiticaAuth(user_id, api_token))
+api = slumber.API('https://habitica.com/api/v3', auth=HabiticaAuth(user_id, api_token))
 
 
 def report_habit(args):
     ''' Report good or bad behavior for a habit. '''
     direction = "up" if args.up else "down"
-    api.user.tasks(args.habit_id)(direction).post()
+    print(api.tasks(args.habit_id)('score')(direction).post())
 
 
 def refresh_tasks(args):
     ''' Fetch the list of tasks the user has from the API and store them in a local cache. '''
 
-    tasks = api.user.tasks.get()
+    tasks = api.tasks.user.get()
 
     tasks_json = []
-    for task in tasks:
+    for task in tasks['data']:
         tasks_json.append({
             'text': task['text'],
             'id': task['id'],
@@ -94,7 +94,7 @@ def autocomplete(args):
     _add_item(items, args.query, args.task_type, args.query)
 
     # Print out the XML
-    print et.tostring(items)
+    print(et.tostring(items))
 
 
 if __name__ == '__main__':
