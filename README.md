@@ -7,7 +7,7 @@ Habitica is a video game built to help you keep up with your habits by turning h
 
 ## Getting set up
 
-Download the current version from this [public link](https://dl.dropboxusercontent.com/u/4148918/Alfred-Habitica-1.0.0.alfredworkflow).
+Download the current version from this [public link](https://dl.dropboxusercontent.com/u/4148918/Alfred-Habitica-1.1.0.alfredworkflow).
 
 To start using the package, first call `hab config`.
 
